@@ -1,0 +1,92 @@
+import React from 'react';
+import styled from 'styled-components';
+import { BasicInputWithLabel } from '../Components/BasicInputWithLabel';
+
+export const SIngupStore = () => {
+  return (
+    <Wapper>
+      <MobileView>
+        <Title>SIGNUP</Title>
+        <FormDiv>
+          <BasicInputWithLabel
+            placeholder="핸드폰 번호('-' 구분없이 입력)"
+            type="number"
+            fieldName="phoneNumber"
+            label="아이디(핸드폰 번호)"
+          />
+          <BasicInputWithLabel
+            placeholder="비밀번호"
+            type="password"
+            fieldName="password"
+            label="비밀번호"
+          />
+          <BasicInputWithLabel
+            placeholder="비밀번호 확인"
+            type="password"
+            fieldName="password"
+            label="비밀번호 확인"
+          />
+          <BasicInputWithLabel
+            placeholder="상호명 입력"
+            type="text"
+            fieldName="name"
+            label="상호명"
+          />
+          <BasicInputWithLabel
+            placeholder="가게 전화번호 입력"
+            type="number"
+            fieldName="name"
+            label="가게 번호"
+          />
+          <BasicInputWithLabel
+            placeholder="가게 주소 입력"
+            type="address"
+            fieldName="name"
+            label="가게 주소"
+          />
+          <BasicInputWithLabel placeholder="업종 입력" type="text" fieldName="name" label="업종" />
+          <BasicInputWithLabel
+            placeholder="적립률 입력"
+            type="number"
+            fieldName="name"
+            label="적립률"
+          />
+          <label htmlFor="fileChoose">가게 이미지</label>
+          <input type="file" name="fileChoose" accept="image/*" />
+          <Button onClick={() => console.log('click')}>로그인</Button>
+        </FormDiv>
+      </MobileView>
+    </Wapper>
+  );
+};
+const Wapper = styled.div`
+  display: flex;
+  height: 100vh;
+  align-items: center;
+`;
+
+const MobileView = styled.div`
+  width: 350px;
+  padding: 20px;
+  margin: 0 auto;
+`;
+const FormDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+const Title = styled.h1`
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 50px;
+`;
+
+const Button = styled.button`
+  background-color: #f6bd60;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  &:hover {
+    background-color: #f7ede2;
+  }
+`;
