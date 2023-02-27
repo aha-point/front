@@ -7,12 +7,7 @@ interface BasicInfoTextFieldProps {
   label: string;
   placeholder?: string;
 }
-export const BasicInputWithLabel = ({
-  placeholder,
-  type,
-  fieldName,
-  label,
-}: BasicInfoTextFieldProps) => {
+const BasicInputWithLabel = ({ placeholder, type, fieldName, label }: BasicInfoTextFieldProps) => {
   return (
     <Box>
       <Label htmlFor={fieldName}>{label}</Label>
@@ -37,3 +32,4 @@ const Input = styled.input`
     color: #c1c1c1;
   }
 `;
+export default BasicInputWithLabel;

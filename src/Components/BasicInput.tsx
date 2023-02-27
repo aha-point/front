@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface BasicInfoTextFieldProps {
+interface BasicInputFieldProps {
   fieldName: string;
   type: string;
   placeholder?: string;
 }
-export const BasicInput = ({ placeholder, type, fieldName }: BasicInfoTextFieldProps) => {
+export const BasicInput = ({ placeholder, type, fieldName }: BasicInputFieldProps) => {
   return <Input placeholder={placeholder} type={type} name={fieldName} />;
 };
 const Input = styled.input`
-  padding: 14px 20px;
-  margin-bottom: 10px;
+  padding: 6px 0;
+
   border: none;
+  border-bottom: 1px solid #c1c1c1;
   outline: none;
-  background-color: #f3f3f3;
-  border-radius: 6px;
+  flex-grow: 1;
+  &::placeholder {
+    color: #c1c1c1;
+  }
 `;

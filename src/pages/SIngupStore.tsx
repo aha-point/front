@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BasicInputWithLabel } from '../Components/BasicInputWithLabel';
+import BasicInputWithLabel from '../Components/BasicInputWithLabel';
+import FileInput from '../Components/FIleInput';
+
+import InputButton from '../Components/InputButton';
 
 export const SIngupStore = () => {
   return (
@@ -8,11 +11,20 @@ export const SIngupStore = () => {
       <MobileView>
         <Title>SIGNUP</Title>
         <FormDiv>
-          <BasicInputWithLabel
+          <Label htmlFor="phoneNumber">아이디(핸드폰 번호)</Label>
+          <InputButton
             placeholder="핸드폰 번호('-' 구분없이 입력)"
             type="number"
-            fieldName="phoneNumber"
             label="아이디(핸드폰 번호)"
+            fieldName="phoneNumber"
+            buttonText="인증번호 전송"
+          />
+          <InputButton
+            placeholder="인증번화 확인"
+            type="number"
+            label="아이디(핸드폰 번호)"
+            fieldName="phoneNumber"
+            buttonText="확인"
           />
           <BasicInputWithLabel
             placeholder="비밀번호"
@@ -51,8 +63,9 @@ export const SIngupStore = () => {
             fieldName="name"
             label="적립률"
           />
-          <label htmlFor="fileChoose">가게 이미지</label>
-          <input type="file" name="fileChoose" accept="image/*" />
+          {/* <label htmlFor="fileChoose">가게 이미지</label>
+          <input type="file" name="fileChoose" accept="image/*" /> */}
+          <FileInput></FileInput>
           <Button onClick={() => console.log('click')}>로그인</Button>
         </FormDiv>
       </MobileView>
@@ -79,7 +92,9 @@ const Title = styled.h1`
   font-size: 24px;
   margin-bottom: 50px;
 `;
-
+const Label = styled.label`
+  margin-bottom: 6px;
+`;
 const Button = styled.button`
   background-color: #f6bd60;
   border: none;
