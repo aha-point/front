@@ -14,6 +14,9 @@ export const Signin = () => {
             <BasicInput placeholder="Password" type="password" fieldName="password" />
             <Button>로그인</Button>
           </FormDiv>
+          <div>회원이 아니신가요?</div>
+          <div>가게 회원가입</div>
+          <div>일반 회원가입</div>
         </MobileView>
       </SplitedView50>
     </Wapper>
