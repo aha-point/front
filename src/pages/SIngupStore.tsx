@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import BasicInputWithLabel from '../Components/BasicInputWithLabel';
 import FileInput from '../Components/FIleInput';
@@ -6,6 +6,21 @@ import FileInput from '../Components/FIleInput';
 import InputButton from '../Components/InputButton';
 
 export const SIngupStore = () => {
+  const [file, setFile] = useState<File | null>();
+  const onChangeFileUploadInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+    if (!files) {
+      return;
+    }
+    setFile(files && files[0]);
+    console.log(files[0]);
+    // const file = files[0];
+    // uploadImage(file) //
+    //   .then((url) => {
+    //     console.log(url, 'url');
+    //   })
+    //   .finally(() => console.log('loaded'));
+  };
   return (
     <Wapper>
       <MobileView>
@@ -65,7 +80,7 @@ export const SIngupStore = () => {
           />
           {/* <label htmlFor="fileChoose">가게 이미지</label>
           <input type="file" name="fileChoose" accept="image/*" /> */}
-          <FileInput></FileInput>
+          <FileInput onChangeFileUploadInput={onChangeFileUploadInput}> </FileInput>
           <Button onClick={() => console.log('click')}>로그인</Button>
         </FormDiv>
       </MobileView>
