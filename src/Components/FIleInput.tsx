@@ -1,10 +1,15 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
-interface FileInputProps {}
+interface FileInputProps {
+  children: string;
+  onChangeFileUploadInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-const FileInput = ({}: FileInputProps) => {
+const FileInput = ({ onChangeFileUploadInput }: FileInputProps) => {
+  const [file, setFile] = useState<File | null>();
   const fileInput = useRef<HTMLInputElement>(null);
+
   const onClickButton = (e: React.MouseEvent<HTMLElement>) => {
     if (fileInput.current) {
       fileInput.current.click();
@@ -15,7 +20,6 @@ const FileInput = ({}: FileInputProps) => {
     formData.append('file', file);
     formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET as string);
     //cloudinary 업로드
-
     return fetch(process.env.REACT_APP_CLOUDINARY_URL as string, {
       method: 'POST',
       body: formData,
@@ -23,21 +27,10 @@ const FileInput = ({}: FileInputProps) => {
       .then((res) => res.json())
       .then((data) => data.url);
   };
-  const onChangeFileUploadInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) {
-      return;
-    }
-    console.log(e.target.files[0]);
-  };
+
   return (
     <div>
-      <div>
-        <img
-          src="/logo192.png"
-          alt=""
-          //   srcset="DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>"
-        />
-      </div>
+      <div>{file && <Image src={URL.createObjectURL(file)} alt="local file" />}</div>
       <Button onClick={onClickButton}>이미지 업로드</Button>
       <Input
         ref={fileInput}
@@ -49,6 +42,10 @@ const FileInput = ({}: FileInputProps) => {
     </div>
   );
 };
+const Image = styled.img`
+  width: 300px;
+  height: 300px;
+`;
 const Input = styled.input`
   display: none;
 `;
