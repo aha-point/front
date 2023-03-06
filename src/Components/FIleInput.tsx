@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
 interface FileInputProps {
   children: string;
@@ -49,15 +50,5 @@ const Image = styled.img`
 const Input = styled.input`
   display: none;
 `;
-const Button = styled.button`
-  background-color: #f6bd60;
-  border: none;
-  padding: 6px;
-  margin-left: 6px;
-  border-radius: 6px;
-  cursor: pointer;
-  &:hover {
-    background-color: #f7ede2;
-  }
-`;
+
 export default FileInput;
