@@ -4,6 +4,8 @@ import BasicInputWithLabel from '../Components/BasicInputWithLabel';
 import FileInput from '../Components/FIleInput';
 
 import InputButton from '../Components/InputButton';
+import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
 
 export const SIngupStore = () => {
   const [file, setFile] = useState<File | null>();
@@ -25,64 +27,68 @@ export const SIngupStore = () => {
     <Wapper>
       <MobileView>
         <Title>SIGNUP</Title>
-        <FormDiv>
-          <Label htmlFor="phoneNumber">아이디(핸드폰 번호)</Label>
-          <InputButton
-            placeholder="핸드폰 번호('-' 구분없이 입력)"
-            type="number"
-            label="아이디(핸드폰 번호)"
-            fieldName="phoneNumber"
-            buttonText="인증번호 전송"
-          />
-          <InputButton
-            placeholder="인증번화 확인"
-            type="number"
-            label="아이디(핸드폰 번호)"
-            fieldName="phoneNumber"
-            buttonText="확인"
-          />
-          <BasicInputWithLabel
-            placeholder="비밀번호"
-            type="password"
-            fieldName="password"
-            label="비밀번호"
-          />
-          <BasicInputWithLabel
-            placeholder="비밀번호 확인"
-            type="password"
-            fieldName="password"
-            label="비밀번호 확인"
-          />
-          <BasicInputWithLabel
-            placeholder="상호명 입력"
-            type="text"
-            fieldName="name"
-            label="상호명"
-          />
-          <BasicInputWithLabel
-            placeholder="가게 전화번호 입력"
-            type="number"
-            fieldName="name"
-            label="가게 번호"
-          />
-          <BasicInputWithLabel
-            placeholder="가게 주소 입력"
-            type="address"
-            fieldName="name"
-            label="가게 주소"
-          />
-          <BasicInputWithLabel placeholder="업종 입력" type="text" fieldName="name" label="업종" />
-          <BasicInputWithLabel
-            placeholder="적립률 입력"
-            type="number"
-            fieldName="name"
-            label="적립률"
-          />
-          {/* <label htmlFor="fileChoose">가게 이미지</label>
+
+        <Grid container columns={12} spacing={1}>
+          <Grid item xs={12}>
+            <InputButton
+              placeholder="핸드폰 번호('-' 구분없이 입력)"
+              type="number"
+              label="아이디(핸드폰 번호)"
+              fieldName="phoneNumber"
+              buttonText="인증번호 전송"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputButton
+              placeholder="인증번화 확인"
+              type="number"
+              label="아이디(핸드폰 번호)"
+              fieldName="phoneNumber"
+              buttonText="확인"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="password"
+              label="비밀번호"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="password"
+              label="비밀번호 확인"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField required id="storeName" label="상호명" variant="standard" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField required id="storeNumber" label="가게 전화번호" variant="standard" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField required id="address" label="가게 주소" variant="standard" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField required id="businessType" label="업종" variant="standard" />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField id="standard-search" label="적립률" type="number" variant="standard" />
+          </Grid>
+        </Grid>
+        {/* <label htmlFor="fileChoose">가게 이미지</label>
           <input type="file" name="fileChoose" accept="image/*" /> */}
+        <Grid>
           <FileInput onChangeFileUploadInput={onChangeFileUploadInput}> </FileInput>
+        </Grid>
+        <Grid>
           <Button onClick={() => console.log('click')}>로그인</Button>
-        </FormDiv>
+        </Grid>
       </MobileView>
     </Wapper>
   );

@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BasicInput } from './BasicInput';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { fileURLToPath } from 'url';
 
 interface InputFieldProps {
   fieldName: string;
@@ -13,8 +16,8 @@ interface InputFieldProps {
 const InputButton = ({ placeholder, type, label, fieldName, buttonText }: InputFieldProps) => {
   return (
     <Box>
-      <BasicInput placeholder={placeholder} type={type} fieldName={fieldName}></BasicInput>
-      <Button>{buttonText}</Button>
+      <TextField required id="storeNumber" label={label} variant="standard" />
+      <Button variant="contained">{buttonText}</Button>
     </Box>
   );
 };
@@ -22,15 +25,5 @@ const Box = styled.div`
   display: flex;
   margin-bottom: 10px;
 `;
-const Button = styled.button`
-  background-color: #f6bd60;
-  border: none;
-  padding: 6px;
-  margin-left: 6px;
-  border-radius: 6px;
-  cursor: pointer;
-  &:hover {
-    background-color: #f7ede2;
-  }
-`;
+
 export default InputButton;
