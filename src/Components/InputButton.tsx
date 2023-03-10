@@ -1,9 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { BasicInput } from './BasicInput';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { fileURLToPath } from 'url';
+import Grid from '@mui/material/Grid';
 
 interface InputFieldProps {
   fieldName: string;
@@ -15,15 +12,15 @@ interface InputFieldProps {
 
 const InputButton = ({ placeholder, type, label, fieldName, buttonText }: InputFieldProps) => {
   return (
-    <Box>
-      <TextField required id="storeNumber" label={label} variant="standard" />
-      <Button variant="contained">{buttonText}</Button>
-    </Box>
+    <>
+      <Grid item xs={7}>
+        <TextField fullWidth required id="storeNumber" label={label} variant="standard" />
+      </Grid>
+      <Grid item xs={5} display="flex" justifyContent={'right'}>
+        <Button variant="contained">{buttonText}</Button>
+      </Grid>
+    </>
   );
 };
-const Box = styled.div`
-  display: flex;
-  margin-bottom: 10px;
-`;
 
 export default InputButton;

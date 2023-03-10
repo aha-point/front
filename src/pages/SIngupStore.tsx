@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import BasicInputWithLabel from '../Components/BasicInputWithLabel';
-import FileInput from '../Components/FIleInput';
-
+import { useState } from 'react';
+import { styled } from '@mui/system';
 import InputButton from '../Components/InputButton';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import ImageUpload from '../Components/ImageUpload';
 
 export const SIngupStore = () => {
   const [file, setFile] = useState<File | null>();
-  const onChangeFileUploadInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const imageFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (!files) {
       return;
@@ -24,12 +23,11 @@ export const SIngupStore = () => {
     //   .finally(() => console.log('loaded'));
   };
   return (
-    <Wapper>
-      <MobileView>
+    <Grid container>
+      <Grid item width={'350px'} margin={'0 auto'} padding={'20px 0'}>
         <Title>SIGNUP</Title>
-
         <Grid container columns={12} spacing={1}>
-          <Grid item xs={12}>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <InputButton
               placeholder="핸드폰 번호('-' 구분없이 입력)"
               type="number"
@@ -38,7 +36,7 @@ export const SIngupStore = () => {
               buttonText="인증번호 전송"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <InputButton
               placeholder="인증번화 확인"
               type="number"
@@ -47,8 +45,9 @@ export const SIngupStore = () => {
               buttonText="확인"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <TextField
+              fullWidth
               id="password"
               label="비밀번호"
               type="password"
@@ -56,8 +55,9 @@ export const SIngupStore = () => {
               variant="standard"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <TextField
+              fullWidth
               id="password"
               label="비밀번호 확인"
               type="password"
@@ -65,64 +65,51 @@ export const SIngupStore = () => {
               variant="standard"
             />
           </Grid>
-          <Grid item xs={12}>
-            <TextField required id="storeName" label="상호명" variant="standard" />
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField fullWidth required id="storeName" label="상호명" variant="standard" />
           </Grid>
-          <Grid item xs={12}>
-            <TextField required id="storeNumber" label="가게 전화번호" variant="standard" />
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField
+              fullWidth
+              required
+              id="storeNumber"
+              label="가게 전화번호"
+              variant="standard"
+            />
           </Grid>
-          <Grid item xs={12}>
-            <TextField required id="address" label="가게 주소" variant="standard" />
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField fullWidth required id="address" label="가게 주소" variant="standard" />
           </Grid>
-          <Grid item xs={12}>
-            <TextField required id="businessType" label="업종" variant="standard" />
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField fullWidth required id="businessType" label="업종" variant="standard" />
           </Grid>
-          <Grid item xs={12}>
-            <TextField id="standard-search" label="적립률" type="number" variant="standard" />
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField
+              fullWidth
+              required
+              id="standard-search"
+              label="적립률"
+              type="number"
+              variant="standard"
+            />
+          </Grid>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            {/* <FileInput imageFileUpload={imageFileUpload}> </FileInput> */}
+            <ImageUpload imageFileUpload={imageFileUpload}></ImageUpload>
           </Grid>
         </Grid>
-        {/* <label htmlFor="fileChoose">가게 이미지</label>
-          <input type="file" name="fileChoose" accept="image/*" /> */}
-        <Grid>
-          <FileInput onChangeFileUploadInput={onChangeFileUploadInput}> </FileInput>
+        <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+          <Button variant="contained" onClick={() => console.log('click')}>
+            회원가입
+          </Button>
         </Grid>
-        <Grid>
-          <Button onClick={() => console.log('click')}>로그인</Button>
-        </Grid>
-      </MobileView>
-    </Wapper>
+      </Grid>
+    </Grid>
   );
 };
-const Wapper = styled.div`
-  display: flex;
-  height: 100vh;
-  align-items: center;
-`;
 
-const MobileView = styled.div`
-  width: 350px;
-  padding: 20px;
-  margin: 0 auto;
-`;
-const FormDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Title = styled.h1`
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 50px;
-`;
-const Label = styled.label`
-  margin-bottom: 6px;
-`;
-const Button = styled.button`
-  background-color: #f6bd60;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  &:hover {
-    background-color: #f7ede2;
-  }
-`;
+const Title = styled('h1')({
+  textAlign: 'center',
+  fontSize: '24px',
+  marginBottom: '50px',
+});
