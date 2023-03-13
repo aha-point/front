@@ -30,7 +30,7 @@ export const SIngupStore = () => {
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <InputButton
               placeholder="핸드폰 번호('-' 구분없이 입력)"
-              type="number"
+              type="tel"
               label="아이디(핸드폰 번호)"
               fieldName="phoneNumber"
               buttonText="인증번호 전송"
@@ -40,7 +40,7 @@ export const SIngupStore = () => {
             <InputButton
               placeholder="인증번화 확인"
               type="number"
-              label="아이디(핸드폰 번호)"
+              label="인증번호"
               fieldName="phoneNumber"
               buttonText="확인"
             />
@@ -72,16 +72,31 @@ export const SIngupStore = () => {
             <TextField
               fullWidth
               required
+              type="tel"
               id="storeNumber"
               label="가게 전화번호"
               variant="standard"
             />
           </Grid>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-            <TextField fullWidth required id="address" label="가게 주소" variant="standard" />
+            <TextField
+              fullWidth
+              required
+              type="text"
+              id="address"
+              label="가게 주소"
+              variant="standard"
+            />
           </Grid>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-            <TextField fullWidth required id="businessType" label="업종" variant="standard" />
+            <TextField
+              fullWidth
+              required
+              type="text"
+              id="businessType"
+              label="업종"
+              variant="standard"
+            />
           </Grid>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <TextField
