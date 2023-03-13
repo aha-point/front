@@ -50,7 +50,7 @@ export const SIngup = () => {
             />
           </Grid>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-            <TextField fullWidth required id="name" label="이름" variant="standard" />
+            <TextField fullWidth required type="text" id="name" label="이름" variant="standard" />
           </Grid>
           <Button variant="contained" onClick={() => console.log('click')}>
             가입하기
