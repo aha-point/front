@@ -1,81 +1,68 @@
-import React from 'react';
-import styled from 'styled-components';
-import { BasicInput } from '../Components/BasicInput';
-import BasicInputWithLabel from '../Components/BasicInputWithLabel';
+import { styled } from '@mui/system';
 import InputButton from '../Components/InputButton';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export const SIngup = () => {
   return (
-    <Wapper>
-      <MobileView>
+    <Grid container>
+      <Grid item width={'350px'} margin={'0 auto'} padding={'20px 0'}>
         <Title>SIGNUP</Title>
-        <FormDiv>
-          <Label htmlFor="phoneNumber">아이디(핸드폰 번호)</Label>
-          <InputButton
-            placeholder="핸드폰 번호('-' 구분없이 입력)"
-            type="number"
-            label="아이디(핸드폰 번호)"
-            fieldName="phoneNumber"
-            buttonText="인증번호 전송"
-          />
-          <InputButton
-            placeholder="인증번화 확인"
-            type="number"
-            label="아이디(핸드폰 번호)"
-            fieldName="phoneNumber"
-            buttonText="확인"
-          />
-          <BasicInputWithLabel
-            placeholder="비밀번호"
-            type="password"
-            fieldName="password"
-            label="비밀번호"
-          />
-          <BasicInputWithLabel
-            placeholder="비밀번호 확인"
-            type="password"
-            fieldName="password"
-            label="비밀번호 확인"
-          />
-          <BasicInputWithLabel
-            placeholder="이름을 입력해주세요"
-            type="text"
-            fieldName="name"
-            label="이름"
-          />
+        <Grid container columns={12} spacing={1}>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <InputButton
+              placeholder="핸드폰 번호('-' 구분없이 입력)"
+              type="number"
+              label="아이디(핸드폰 번호)"
+              fieldName="phoneNumber"
+              buttonText="인증번호 전송"
+            />
+          </Grid>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <InputButton
+              placeholder="인증번화 확인"
+              type="number"
+              label="아이디(핸드폰 번호)"
+              fieldName="phoneNumber"
+              buttonText="확인"
+            />
+          </Grid>
 
-          <Button>가입하기</Button>
-        </FormDiv>
-      </MobileView>
-    </Wapper>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField
+              fullWidth
+              id="password"
+              label="비밀번호"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+            />
+          </Grid>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField
+              fullWidth
+              id="password"
+              label="비밀번호 확인"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+            />
+          </Grid>
+          <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
+            <TextField fullWidth required id="name" label="이름" variant="standard" />
+          </Grid>
+          <Button variant="contained" onClick={() => console.log('click')}>
+            가입하기
+          </Button>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
-const Wapper = styled.div`
-  display: flex;
-  height: 100vh;
-  align-items: center;
-`;
 
-const MobileView = styled.div`
-  width: 350px;
-  padding: 20px;
-  margin: 0 auto;
-`;
-const FormDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Title = styled.h1`
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 50px;
-`;
-const Label = styled.label`
-  margin-bottom: 6px;
-`;
-const Button = styled.button`
-  background-color: #f6bd60;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 6px;
-`;
+const Title = styled('h1')({
+  textAlign: 'center',
+  fontSize: '24px',
+  marginBottom: '50px',
+});
