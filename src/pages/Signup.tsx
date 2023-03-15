@@ -4,9 +4,9 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-export const SIngup = () => {
+export const Signup = () => {
   return (
-    <Grid container>
+    <Grid container height={'100vh'} alignItems="center">
       <Grid item width={'350px'} margin={'0 auto'} padding={'20px 0'}>
         <Title>SIGNUP</Title>
         <Grid container columns={12} spacing={1}>
@@ -52,7 +52,7 @@ export const SIngup = () => {
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <TextField fullWidth required type="text" id="name" label="이름" variant="standard" />
           </Grid>
-          <Button variant="contained" onClick={() => console.log('click')}>
+          <Button variant="contained" fullWidth onClick={() => console.log('click')}>
             가입하기
           </Button>
         </Grid>

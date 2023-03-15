@@ -2,7 +2,8 @@ import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import Link from '@mui/material/Link';
 
 export const Login = () => {
   return (
@@ -32,16 +33,23 @@ export const Login = () => {
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-              <Button variant={'contained'}>로그인</Button>
+              <Button variant={'contained'} fullWidth>
+                로그인
+              </Button>
             </Grid>
           </Grid>
-          <Grid container justifyContent={'space-between'}>
+          <Grid container justifyContent={'space-between'} alignItems="center">
             <Grid item>
               <div>회원이 아니신가요?</div>
             </Grid>
             <Grid item>
-              <Link to="/sinupstore">가게 회원가입</Link>
-              <Link to="/sinupstore">일반 회원가입</Link>
+              <Link component={RouterLink} to="/signupstore">
+                가게 회원가입
+              </Link>
+              <br />
+              <Link component={RouterLink} to="/signup">
+                일반 회원가입
+              </Link>
             </Grid>
           </Grid>
         </Grid>
