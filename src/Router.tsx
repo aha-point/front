@@ -4,6 +4,7 @@ import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { SignupStore } from './pages/SignupStore';
 import User from './pages/User';
+import StoreUser from './pages/StoreUser';
 const router = createBrowserRouter([
   {
     path: '*',
@@ -26,8 +27,12 @@ const router = createBrowserRouter([
     element: <SignupStore />,
   },
   {
-    path: '/User',
+    path: '/user',
     element: <User />,
+  },
+  {
+    path: '/storeuser',
+    element: <StoreUser />,
   },
 ]);
 export default router;
