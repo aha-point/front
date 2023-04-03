@@ -14,24 +14,14 @@ const generate = (element: ReactElement) => {
 const User: FC<IUserProps> = (props) => {
   return (
     <Box
-      width={'350px'}
+      width={'1200px'}
       display="flex"
       flexDirection={'column'}
       margin={'0 auto'}
       overflow={'scroll'}
       pt={2}
     >
-      <Box width={'100%'} pb={4}>
-        <Box>
-          <Typography variant="body1" color="initial">
-            가나다 님의 현재 적립금
-          </Typography>
-          <Typography variant="h4" color="initial">
-            1000원
-          </Typography>
-        </Box>
-      </Box>
-      <Box width={'100%'}>
+      <Box width={'100%'} pt={4}>
         <Box>
           <Typography variant="subtitle1" color="initial">
             적립내역

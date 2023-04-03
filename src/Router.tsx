@@ -5,6 +5,8 @@ import { Signup } from './pages/Signup';
 import { SignupStore } from './pages/SignupStore';
 import User from './pages/User';
 import StoreUser from './pages/StoreUser';
+import Detail from './pages/Detail';
+import PointUse from './pages/PointUse';
 const router = createBrowserRouter([
   {
     path: '*',
@@ -34,5 +36,10 @@ const router = createBrowserRouter([
     path: '/storeuser',
     element: <StoreUser />,
   },
+  {
+    path: '/detail/:detailId',
+    element: <Detail />,
+  },
+  { path: 'pointuse', element: <PointUse /> },
 ]);
 export default router;

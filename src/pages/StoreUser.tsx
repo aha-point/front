@@ -3,6 +3,7 @@ import SearchBar from '../Components/SearchBar';
 import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
 import FolderIcon from '@mui/icons-material/Folder';
 import { Box } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 
 interface IStoreUserProps {}
 const data = [
@@ -25,9 +26,17 @@ const filterData = (query: string, data: string[]) => {
     return data.filter((e: string) => e.toLowerCase().includes(query));
   }
 };
+
 const StoreUser: FC<IStoreUserProps> = (props) => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+
   const dataFiltered = filterData(searchQuery, data);
+  const clickListItem = (e: any) => {
+    console.log('click');
+    console.log(e, 'e');
+    navigate(`/detail/${e}`);
+  };
   return (
     // <div
     //   style={{
@@ -47,10 +56,11 @@ const StoreUser: FC<IStoreUserProps> = (props) => {
       pt={2}
     >
       <Box>가게 찾아보기</Box>
+
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div style={{ padding: 3 }}>
         {dataFiltered.map((e: string, index: number) => (
-          <ListItem sx={{ px: 0 }}>
+          <ListItem sx={{ px: 0, cursor: 'pointer' }} onClick={() => clickListItem(e)}>
             <ListItemAvatar>
               <Avatar sx={{ backgroundColor: '#aa96ac' }}>
                 <FolderIcon />
