@@ -1,76 +1,45 @@
-import { useState, FC } from 'react';
-import SearchBar from '../Components/SearchBar';
-import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
-import FolderIcon from '@mui/icons-material/Folder';
+import { Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import { FC, ReactElement, cloneElement } from 'react';
+import FolderIcon from '@mui/icons-material/Folder';
 
-interface IStoreUserProps {}
-const data = [
-  'Paris',
-  'London',
-  'New York',
-  'Tokyo',
-  'Berlin',
-  'Buenos Aires',
-  'Cairo',
-  'Canberra',
-  'Rio de Janeiro',
-  'Dublin',
-  '가나',
-];
-const filterData = (query: string, data: string[]) => {
-  if (!query) {
-    return data;
-  } else {
-    return data.filter((e: string) => e.toLowerCase().includes(query));
-  }
+interface StoreUserProps {}
+const generate = (element: ReactElement) => {
+  return new Array(3).fill(0).map((value, index) =>
+    cloneElement(element, {
+      key: index + 1,
+    }),
+  );
 };
-
-const StoreUser: FC<IStoreUserProps> = (props) => {
-  const navigate = useNavigate();
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const dataFiltered = filterData(searchQuery, data);
-  const clickListItem = (e: any) => {
-    console.log('click');
-    console.log(e, 'e');
-    navigate(`/detail/${e}`);
-  };
+const StoreUser: FC<StoreUserProps> = () => {
   return (
-    // <div
-    //   style={{
-    //     display: 'flex',
-    //     alignSelf: 'center',
-    //     justifyContent: 'center',
-    //     flexDirection: 'column',
-    //     padding: 20,
-    //   }}
-    // >
     <Box
-      width={'350px'}
+      width={'1200px'}
       display="flex"
       flexDirection={'column'}
       margin={'0 auto'}
       overflow={'scroll'}
       pt={2}
     >
-      <Box>가게 찾아보기</Box>
-
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <div style={{ padding: 3 }}>
-        {dataFiltered.map((e: string, index: number) => (
-          <ListItem sx={{ px: 0, cursor: 'pointer' }} onClick={() => clickListItem(e)}>
-            <ListItemAvatar>
-              <Avatar sx={{ backgroundColor: '#aa96ac' }}>
-                <FolderIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={e} />
-          </ListItem>
-        ))}
-      </div>
-      {/* </div> */}
+      <Box width={'100%'} pt={4}>
+        <Box>
+          <Typography variant="subtitle1" color="initial">
+            적립내역
+          </Typography>
+          <List>
+            {generate(
+              <ListItem sx={{ px: 0 }} secondaryAction={<Typography>+1000원 적립</Typography>}>
+                <ListItemAvatar>
+                  <Avatar sx={{ backgroundColor: '#aa96ac' }}>
+                    <FolderIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Single-line item" secondary={'2023년 3월 20일'} />
+              </ListItem>,
+            )}
+          </List>
+        </Box>
+      </Box>
     </Box>
   );
 };

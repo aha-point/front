@@ -4,9 +4,10 @@ import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { SignupStore } from './pages/SignupStore';
 import User from './pages/User';
-import StoreUser from './pages/StoreUser';
+import SearchStore from './pages/SearchStore';
 import Detail from './pages/Detail';
 import PointUse from './pages/PointUse';
+import StoreUser from './pages/StoreUser';
 const router = createBrowserRouter([
   {
     path: '*',
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: '/storeuser',
     element: <StoreUser />,
+  },
+  {
+    path: '/searchstore',
+    element: <SearchStore />,
   },
   {
     path: '/detail/:detailId',
