@@ -33,8 +33,6 @@ const SearchStore: FC<IStoreUserProps> = (props) => {
 
   const dataFiltered = filterData(searchQuery, data);
   const clickListItem = (e: any) => {
-    console.log('click');
-    console.log(e, 'e');
     navigate(`/detail/${e}`);
   };
   return (

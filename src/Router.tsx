@@ -6,7 +6,7 @@ import { SignupStore } from './pages/SignupStore';
 import User from './pages/User';
 import SearchStore from './pages/SearchStore';
 import Detail from './pages/Detail';
-import PointUse from './pages/PointUse';
+import UsePoint from './pages/UsePoint';
 import StoreUser from './pages/StoreUser';
 const router = createBrowserRouter([
   {
@@ -45,6 +45,6 @@ const router = createBrowserRouter([
     path: '/detail/:detailId',
     element: <Detail />,
   },
-  { path: 'pointuse', element: <PointUse /> },
+  { path: 'UsePoint', element: <UsePoint /> },
 ]);
 export default router;
