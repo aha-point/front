@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { styled } from '@mui/material';
 import { FC } from 'react';
 import { Box } from '@mui/system';
 
@@ -7,23 +7,34 @@ interface InfoTextProps {
   price: number;
   userPoint: number;
 }
-
+const PricePoint = styled('span')({
+  fontSize: '20px',
+  color: 'blueviolet',
+});
 const InfoText: FC<InfoTextProps> = ({ pointUseStatus, userPoint, price }: InfoTextProps) => {
-  return pointUseStatus === 'getPoint' ? (
-    <Box>
-      <span>{price}</span>원을 결제하여
-      <span>{Math.round(price * 0.1)}</span>포인트를 적립합니다.
-    </Box>
-  ) : (
-    <Box>
-      <span>{price}</span>원을 결제하여 <span>{userPoint > price ? price : userPoint}</span>포인트를
-      사용 후
-      <span>
-        {Math.round((price - userPoint) * 0.1) >= 0 ? Math.round((price - userPoint) * 0.1) : 0}
-      </span>
-      포인트를 적립합니다.
-    </Box>
-  );
+  const usedPoint = userPoint > price ? price : userPoint;
+  const earnedPoint = Math.round((price - usedPoint) * 0.1);
+
+  if (price > 0) {
+    if (pointUseStatus === 'getPoint') {
+      return (
+        <Box>
+          <PricePoint>{price}</PricePoint>원을 결제하여 <PricePoint>{earnedPoint}</PricePoint>{' '}
+          포인트를 적립합니다.
+        </Box>
+      );
+    } else {
+      return (
+        <Box>
+          <PricePoint>{price}</PricePoint>원을 결제하여 <PricePoint>{usedPoint}</PricePoint>
+          포인트를 사용 후 <PricePoint>{earnedPoint >= 0 ? earnedPoint : 0}</PricePoint>포인트를
+          적립합니다.
+        </Box>
+      );
+    }
+  } else {
+    return <></>;
+  }
 };
 
 export default InfoText;

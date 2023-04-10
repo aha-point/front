@@ -10,7 +10,7 @@ interface PointUseProps {}
 const PointUse: FC<PointUseProps> = () => {
   const [price, setPrice] = useState<number>(0);
   const [userPoint, setUserPoint] = useState(1000);
-  const [pointUseStatus, setPointUseStatus] = useState('getPoint');
+  const [pointUseStatus, setPointUseStatus] = useState<string>('getPoint');
 
   return (
     <Box
@@ -54,11 +54,7 @@ const PointUse: FC<PointUseProps> = () => {
       </Box>
       <Box p={1} display="flex" justifyContent={'space-between'}>
         <Box>
-          {price !== 0 ? (
-            <InfoText pointUseStatus={pointUseStatus} userPoint={userPoint} price={price} />
-          ) : (
-            ''
-          )}
+          <InfoText pointUseStatus={pointUseStatus} userPoint={userPoint} price={price} />
         </Box>
         <Button disabled={!price ? true : false} variant="contained">
           다음
