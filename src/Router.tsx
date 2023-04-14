@@ -8,10 +8,16 @@ import SearchStore from './pages/SearchStore';
 import Detail from './pages/Detail';
 import UsePoint from './pages/UsePoint';
 import StoreUser from './pages/StoreUser';
+import UsePointResult from './pages/UsePointResult';
+import NotFound from './pages/NotFound';
 const router = createBrowserRouter([
   {
     path: '*',
-    element: <div>not found</div>,
+    element: <NotFound />,
+  },
+  {
+    path: '/notfound',
+    element: <NotFound />,
   },
   {
     path: '/',
@@ -46,5 +52,6 @@ const router = createBrowserRouter([
     element: <Detail />,
   },
   { path: 'UsePoint', element: <UsePoint /> },
+  { path: 'UsePointResult', element: <UsePointResult /> },
 ]);
 export default router;

@@ -1,17 +1,37 @@
-import { FC, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, FC, useMemo, useState } from 'react';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
 import RadioButtonGroup from '../Components/RadioButtonGroup';
 import InfoText from '../Components/usePoint/InfoText';
+import { useNavigate } from 'react-router-dom';
 
 interface PointUseProps {}
 
-const PointUse: FC<PointUseProps> = () => {
-  const [price, setPrice] = useState<number>(0);
-  const [userPoint, setUserPoint] = useState(1000);
+const PointUse = () => {
+  const navigate = useNavigate();
+
+  const [paiedPrice, setPaiedPrice] = useState<number>(0);
+  const [beforeUserPoint, setBeforeUserPoint] = useState(1000);
   const [pointUseStatus, setPointUseStatus] = useState<string>('getPoint');
 
+  const nowUsingPoint = useMemo(() => {
+    return beforeUserPoint > paiedPrice ? paiedPrice : beforeUserPoint;
+  }, [paiedPrice, beforeUserPoint]);
+  const normalGetPoint = useMemo(() => {
+    return Math.round(paiedPrice * 0.1);
+  }, [paiedPrice]);
+  const useThenGetPoint = useMemo(() => {
+    return Math.round((paiedPrice - nowUsingPoint) * 0.1);
+  }, [paiedPrice, nowUsingPoint]);
+
+  const onClickNextButton = () => {
+    if (pointUseStatus === 'usePoint') {
+      navigate('/usepointresult', { state: { useStatus: 'usePoint', currentUserPoint: 1000 } });
+    } else {
+      navigate('/usepointresult', { state: { useStatus: 'getPoint', currentUserPoint: 1000 } });
+    }
+  };
   return (
     <Box
       maxWidth={'1200px'}
@@ -26,13 +46,13 @@ const PointUse: FC<PointUseProps> = () => {
           가나다님의 현재 적립금
         </Typography>
         <Typography variant="h4" color="initial">
-          {`${userPoint}원`}
+          {`${beforeUserPoint}원`}
         </Typography>
       </Box>
       <Box p={1}>
         <TextField
-          onChange={(e: any) => {
-            setPrice(e.target.value);
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setPaiedPrice(Number(e.target.value));
           }}
           fullWidth
           required
@@ -54,9 +74,19 @@ const PointUse: FC<PointUseProps> = () => {
       </Box>
       <Box p={1} display="flex" justifyContent={'space-between'}>
         <Box>
-          <InfoText pointUseStatus={pointUseStatus} userPoint={userPoint} price={price} />
+          <InfoText
+            nowUsingPoint={nowUsingPoint}
+            normalGetPoint={normalGetPoint}
+            useThenGetPoint={useThenGetPoint}
+            pointUseStatus={pointUseStatus}
+            paiedPrice={paiedPrice}
+          />
         </Box>
-        <Button disabled={!price ? true : false} variant="contained">
+        <Button
+          onClick={onClickNextButton}
+          disabled={!paiedPrice ? true : false}
+          variant="contained"
+        >
           다음
         </Button>
       </Box>
