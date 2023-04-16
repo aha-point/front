@@ -7,7 +7,7 @@ import User from './pages/user/User';
 import SearchStore from './pages/user/SearchStore';
 import Detail from './pages/store/Detail';
 import UsePoint from './pages/store/UsePoint';
-import StoreUser from './pages/store/StoreUser';
+import AccumulatedPointList from './pages/store/AccumulatedPointList';
 import UsePointResult from './pages/store/UsePointResult';
 import NotFound from './pages/NotFound';
 const router = createBrowserRouter([
@@ -40,8 +40,8 @@ const router = createBrowserRouter([
     element: <User />,
   },
   {
-    path: '/storeuser',
-    element: <StoreUser />,
+    path: '/accumulatedPointList',
+    element: <AccumulatedPointList />,
   },
   {
     path: '/searchstore',

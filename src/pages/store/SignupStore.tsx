@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import ImageUpload from '../../Components/ImageUpload';
+import BasicButton from '../../Components/Button/BasicButton';
 
 export const SignupStore = () => {
   const [file, setFile] = useState<File | null>();
@@ -25,7 +26,15 @@ export const SignupStore = () => {
   return (
     <Grid container height={'100vh'} alignItems="center">
       <Grid item width={'350px'} margin={'0 auto'} padding={'20px 0'}>
-        <Title>SIGNUP</Title>
+        <Title
+          sx={{
+            color: '#eff4f5',
+            textShadow:
+              '1px 1px #c56f76, 1px -1px #c56f76, -1px 1px #c56f76, -1px -1px #c56f76, 2px 2px 3px #ecacaa',
+          }}
+        >
+          SIGNUP
+        </Title>
         <Grid container columns={12} spacing={1}>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
             <InputButton
@@ -114,9 +123,9 @@ export const SignupStore = () => {
           </Grid>
         </Grid>
         <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-          <Button variant="contained" fullWidth onClick={() => console.log('click')}>
+          <BasicButton onClick={() => console.log('click')} fullWidth>
             회원가입
-          </Button>
+          </BasicButton>
         </Grid>
       </Grid>
     </Grid>

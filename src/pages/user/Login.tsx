@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+import { ButtonBase } from '@mui/material';
+import BasicButton from '../../Components/Button/BasicButton';
 
 export const Login = () => {
   return (
@@ -11,7 +13,15 @@ export const Login = () => {
       <Grid item width={'50%'} margin={'0 auto'}></Grid>
       <Grid item width={'50%'} alignItems={'center'}>
         <Grid container height={'100%'} direction="column" justifyContent="center" width={'350px'}>
-          <Title>LOGIN</Title>
+          <Title
+            sx={{
+              color: '#eff4f5',
+              textShadow:
+                '1px 1px #c56f76, 1px -1px #c56f76, -1px 1px #c56f76, -1px -1px #c56f76, 2px 2px 3px #ecacaa',
+            }}
+          >
+            LOGIN
+          </Title>
           <Grid container columns={12} spacing={1} direction="row" justifyContent="center">
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
               <TextField
@@ -33,9 +43,14 @@ export const Login = () => {
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-              <Button variant={'contained'} fullWidth>
+              <BasicButton
+                onClick={() => {
+                  console.log('click login');
+                }}
+                fullWidth
+              >
                 로그인
-              </Button>
+              </BasicButton>
             </Grid>
           </Grid>
           <Grid container justifyContent={'space-between'} alignItems="center">

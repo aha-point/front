@@ -46,10 +46,10 @@ export const Colors = {
   GRAY1: '#1C1C1C',
   GRAY2: '#3B3B3B',
   RED: '#E11212',
-  YELLOW: '#FFC42E',
-  GREEN: '#0FBA16',
+  YELLOW: '#e8d804',
+  GREEN: '#c9d06a',
   BLUE: '#1D25E7',
-  COOLGRAY: '#DCE2E5',
+  COOLGRAY: '#E9E8E6',
   WHITE: '#FFFFFF',
   BLACK: '#000000',
 };
@@ -57,11 +57,11 @@ export const Colors = {
 export const palette: PaletteOptions = {
   mode: 'light',
   background: {
-    default: Colors.WHITE,
+    default: Colors.COOLGRAY,
     paper: Colors.WHITE,
   },
   primary: {
-    main: Colors.YELLOW,
+    main: Colors.GREEN,
   },
   secondary: {
     /** NOT USED */
