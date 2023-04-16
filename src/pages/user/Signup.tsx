@@ -1,5 +1,5 @@
 import { styled } from '@mui/system';
-import InputButton from '../Components/InputButton';
+import InputButton from '../../Components/InputButton';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';

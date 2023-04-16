@@ -1,14 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
-import { Login } from './pages/Login';
-import { Signup } from './pages/Signup';
-import { SignupStore } from './pages/SignupStore';
-import User from './pages/User';
-import SearchStore from './pages/SearchStore';
-import Detail from './pages/Detail';
-import UsePoint from './pages/UsePoint';
-import StoreUser from './pages/StoreUser';
-import UsePointResult from './pages/UsePointResult';
+import { Login } from './pages/user/Login';
+import { Signup } from './pages/user/Signup';
+import { SignupStore } from './pages/store/SignupStore';
+import User from './pages/user/User';
+import SearchStore from './pages/user/SearchStore';
+import Detail from './pages/store/Detail';
+import UsePoint from './pages/store/UsePoint';
+import StoreUser from './pages/store/StoreUser';
+import UsePointResult from './pages/store/UsePointResult';
 import NotFound from './pages/NotFound';
 const router = createBrowserRouter([
   {

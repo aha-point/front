@@ -2,8 +2,8 @@ import { ChangeEvent, FC, useMemo, useState } from 'react';
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
-import RadioButtonGroup from '../Components/RadioButtonGroup';
-import InfoText from '../Components/usePoint/InfoText';
+import RadioButtonGroup from '../../Components/RadioButtonGroup';
+import InfoText from '../../Components/usePoint/InfoText';
 import { useNavigate } from 'react-router-dom';
 
 interface PointUseProps {}

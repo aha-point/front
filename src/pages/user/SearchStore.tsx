@@ -1,5 +1,5 @@
 import { useState, FC } from 'react';
-import SearchBar from '../Components/SearchBar';
+import SearchBar from '../../Components/SearchBar';
 import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
 import FolderIcon from '@mui/icons-material/Folder';
 import { Box } from '@mui/system';

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { styled } from '@mui/system';
-import InputButton from '../Components/InputButton';
+import InputButton from '../../Components/InputButton';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import ImageUpload from '../Components/ImageUpload';
+import ImageUpload from '../../Components/ImageUpload';
 
 export const SignupStore = () => {
   const [file, setFile] = useState<File | null>();
