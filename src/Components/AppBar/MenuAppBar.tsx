@@ -2,17 +2,14 @@ import React, { ReactNode, useEffect } from 'react';
 import { styled } from '@mui/system';
 import { AppBar, Toolbar, IconButton, Menu, MenuItem, Typography } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import AdbIcon from '@mui/icons-material/Adb';
 import Box from '@mui/material/Box';
 // import Theme from '../styles/theme';
 // import { useTheme } from '@emotion/react';
 import { useTheme, Theme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 interface MenuAppBarProps {
   children: ReactNode;
 }
-const StyledAppBar = styled(AppBar)({
-  //   backgroundColor: '#2196f3',
-});
 
 const StyledMenuItem = styled(MenuItem)({
   '&:hover': {
@@ -25,13 +22,16 @@ const MenuAppBar = ({ children }: MenuAppBarProps) => {
   const theme: Theme = useTheme();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
+  const navigate = useNavigate();
   const handleMenu = (event: any) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const goToSettingPage = () => {
+    navigate('/storesetting');
   };
   useEffect(() => {
     console.log(theme, 'theme');
@@ -88,7 +88,7 @@ const MenuAppBar = ({ children }: MenuAppBarProps) => {
                 open={open}
                 onClose={handleClose}
               >
-                <StyledMenuItem onClick={handleClose}>My account</StyledMenuItem>
+                <StyledMenuItem onClick={goToSettingPage}>My account</StyledMenuItem>
                 <StyledMenuItem onClick={handleClose}>Logout</StyledMenuItem>
               </Menu>
             </Box>

@@ -25,7 +25,7 @@ const RadioButtonGroup: FC<RadioButtonGroupProps> = ({
   const [value, setValue] = useState('getPoint');
   useEffect(() => {
     changePointUseState(value);
-  }, [value]);
+  }, [changePointUseState, value]);
   return (
     <FormControl>
       <FormLabel id="demo-radio-buttons-group-label">{radioButtonGroupLabel}</FormLabel>

@@ -1,26 +1,19 @@
-import {
-  Typography,
-  List,
-  ListItem,
-  ListItemAvatar,
-  Avatar,
-  ListItemText,
-  Button,
-} from '@mui/material';
+import { Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
 import { ReactElement, cloneElement } from 'react';
 import FolderIcon from '@mui/icons-material/Folder';
 import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 
-interface AccumulatedPointListProps {}
+// interface AccumulatedPointListProps {}
 const generate = (element: ReactElement) => {
-  return new Array(3).fill(0).map((value, index) =>
+  return [0, 0, 0].map((value, index) =>
     cloneElement(element, {
       key: index + 1,
+      value,
     }),
   );
 };
-const AccumulatedPointList = ({}: AccumulatedPointListProps) => {
+const AccumulatedPointList = () => {
   return (
     <MenuAppBar>
       <Box

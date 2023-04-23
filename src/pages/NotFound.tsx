@@ -1,5 +1,3 @@
-import { Navigate, useLocation } from 'react-router-dom';
-
 interface INotFoundProps {}
 
 const NotFound = (props: INotFoundProps) => {

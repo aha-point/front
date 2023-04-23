@@ -1,5 +1,5 @@
 import { useState, FC } from 'react';
-import { ListItem, ListItemAvatar, Avatar, ListItemText, AppBar, Typography } from '@mui/material';
+import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
 import FolderIcon from '@mui/icons-material/Folder';
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';

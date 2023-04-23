@@ -1,21 +1,20 @@
-import { useState } from 'react';
 import { styled } from '@mui/system';
 import InputButton from '../../Components/InputButton';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
+
 import ImageUpload from '../../Components/ImageUpload';
 import BasicButton from '../../Components/Button/BasicButton';
 
 export const SignupStore = () => {
-  const [file, setFile] = useState<File | null>();
+  // const [file, setFile] = useState<File | null>();
   const imageFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (!files) {
       return;
     }
-    setFile(files && files[0]);
-    console.log(files[0]);
+    // setFile(files && files[0]);
+    // console.log(files[0]);
     // const file = files[0];
     // uploadImage(file) //
     //   .then((url) => {

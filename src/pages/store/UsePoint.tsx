@@ -1,4 +1,4 @@
-import { ChangeEvent, useMemo, useState } from 'react';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import TextField from '@mui/material/TextField';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 import BasicButton from '../../Components/Button/BasicButton';
 
-interface PointUseProps {}
+// interface PointUseProps {}
 
 const PointUse = () => {
   const navigate = useNavigate();
@@ -34,6 +34,9 @@ const PointUse = () => {
       navigate('/usepointresult', { state: { useStatus: 'getPoint', currentUserPoint: 1000 } });
     }
   };
+  useEffect(() => {
+    setBeforeUserPoint(1000);
+  }, []);
   return (
     <MenuAppBar>
       <Box

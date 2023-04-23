@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import { FormEvent } from 'react';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 interface SearchBarProps {
   searchQuery: any;
   setSearchQuery: any;

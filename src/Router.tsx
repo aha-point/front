@@ -10,6 +10,7 @@ import UsePoint from './pages/store/UsePoint';
 import AccumulatedPointList from './pages/store/AccumulatedPointList';
 import UsePointResult from './pages/store/UsePointResult';
 import NotFound from './pages/NotFound';
+import StoreSetting from './pages/store/StoreSetting';
 const router = createBrowserRouter([
   {
     path: '*',
@@ -51,7 +52,8 @@ const router = createBrowserRouter([
     path: '/detail/:detailId',
     element: <Detail />,
   },
-  { path: 'UsePoint', element: <UsePoint /> },
-  { path: 'UsePointResult', element: <UsePointResult /> },
+  { path: '/usePoint', element: <UsePoint /> },
+  { path: '/usePointResult', element: <UsePointResult /> },
+  { path: '/storesetting', element: <StoreSetting /> },
 ]);
 export default router;
