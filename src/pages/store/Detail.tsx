@@ -5,7 +5,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import Typography from '@mui/material/Typography';
 import CallIcon from '@mui/icons-material/Call';
 import { List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
-import MenuAppBar from '../../Components/MenuAppBar';
+import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 import AccessibleIcon from '@mui/icons-material/Accessible';
 import WifiIcon from '@mui/icons-material/Wifi';
 import PetsIcon from '@mui/icons-material/Pets';

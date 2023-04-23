@@ -10,7 +10,7 @@ import {
 import { Box } from '@mui/system';
 import { ReactElement, cloneElement } from 'react';
 import FolderIcon from '@mui/icons-material/Folder';
-import MenuAppBar from '../../Components/MenuAppBar';
+import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 
 interface AccumulatedPointListProps {}
 const generate = (element: ReactElement) => {

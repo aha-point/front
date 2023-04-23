@@ -2,7 +2,7 @@ import { Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText } from
 import { Box } from '@mui/system';
 import { ReactElement, cloneElement, FC } from 'react';
 import FolderIcon from '@mui/icons-material/Folder';
-import MenuAppBar from '../../Components/MenuAppBar';
+import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 
 interface IUserProps {}
 const generate = (element: ReactElement) => {

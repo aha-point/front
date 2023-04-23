@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import RadioButtonGroup from '../../Components/RadioButtonGroup';
 import InfoText from '../../Components/usePoint/InfoText';
 import { useNavigate } from 'react-router-dom';
-import MenuAppBar from '../../Components/MenuAppBar';
+import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 import BasicButton from '../../Components/Button/BasicButton';
 
 interface PointUseProps {}

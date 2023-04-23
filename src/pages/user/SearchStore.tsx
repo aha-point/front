@@ -3,7 +3,7 @@ import { ListItem, ListItemAvatar, Avatar, ListItemText, AppBar, Typography } fr
 import FolderIcon from '@mui/icons-material/Folder';
 import { Box } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-import MenuAppBar from '../../Components/MenuAppBar';
+import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 import { TextField, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 

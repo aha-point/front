@@ -1,7 +1,7 @@
 import { Box } from '@mui/system';
 import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Button, Typography } from '@mui/material';
-import MenuAppBar from '../../Components/MenuAppBar';
+import MenuAppBar from '../../Components/AppBar/MenuAppBar';
 import BasicButton from '../../Components/Button/BasicButton';
 
 interface IUsePointResultProps {}
