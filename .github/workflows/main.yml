@@ -29,7 +29,7 @@ jobs:
         aws-region: "ap-northeast-2"
     - name: Copy files to the production website with the AWS CLI
       run: |
-        aws s3 sync ./build s3://aha-point-front
+        aws s3 sync ./build s3://aha-front
     - name: Invalidate CloudFront Cache
       run: aws cloudfront create-invalidation --distribution-id ${{secrets.DEV_DISTRIBUTION_ID_2}} --paths "/*"
   
