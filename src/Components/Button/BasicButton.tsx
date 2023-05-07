@@ -16,7 +16,7 @@ const BasicButton = ({ onClick, disabled = false, children, ...rest }: IBasicBut
       sx={{
         boxShadow: 'none',
         '&:hover': {
-          backgroundColor: '#e8d804', // hover 시 secondary 색상으로 변경
+          backgroundColor: '#bfc47e', // hover 시 secondary 색상으로 변경
           boxShadow: 'none',
         },
       }}

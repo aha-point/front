@@ -1,37 +1,29 @@
-import { useState, FC } from 'react';
-import { ListItem, ListItemAvatar, Avatar, ListItemText, Typography } from '@mui/material';
-import FolderIcon from '@mui/icons-material/Folder';
+import { useState } from 'react';
 import { Box } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
-import { TextField, IconButton } from '@mui/material';
+import { TextField, IconButton, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { ListItem, ListItemAvatar, Avatar, ListItemText } from '@mui/material';
+import FolderIcon from '@mui/icons-material/Folder';
+import { useNavigate } from 'react-router-dom';
 
-interface IStoreUserProps {}
 const data = [
-  'Paris',
-  'London',
-  'New York',
-  'Tokyo',
-  'Berlin',
-  'Buenos Aires',
-  'Cairo',
-  'Canberra',
-  'Rio de Janeiro',
-  'Dublin',
-  '가나',
+  { name: '토끼', phoneNumber: '01012341234' },
+  { name: '강쥐', phoneNumber: '01011111111' },
+  { name: '몽몽', phoneNumber: '01022222222' },
+  { name: '뭉뭉', phoneNumber: '01033333333' },
+  { name: '냥냥', phoneNumber: '01044444444' },
 ];
-const filterData = (query: string, data: string[]) => {
+const filterData = (query: string, data: { name: string; phoneNumber: string }[]) => {
   if (!query) {
     return data;
   } else {
-    return data.filter((e: string) => e.toLowerCase().includes(query));
+    return data.filter((e) => e.phoneNumber.toLowerCase().includes(query));
   }
 };
 
-const SearchStore: FC<IStoreUserProps> = (props) => {
+const SearchUser = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
-
   const handleKeyDown = (event: any) => {
     if (event.key === 'Enter') {
       // TODO : 여기에서 검색 실행
@@ -40,8 +32,8 @@ const SearchStore: FC<IStoreUserProps> = (props) => {
   };
   const dataFiltered = filterData(searchQuery, data);
   const clickListItem = (e: any) => {
-    // TODO : detail 이동시 store 정보 받아오기
-    navigate(`/user/storedetail/${e}`);
+    // TODO : 포인트 사용으로 이동시 사용사 정보 가져가기
+    navigate(`/store/usepoint`);
   };
   return (
     <Box
@@ -54,13 +46,13 @@ const SearchStore: FC<IStoreUserProps> = (props) => {
     >
       <Box>
         <Typography pb={2} variant="body1" color="initial">
-          가게 찾기
+          번호 찾기
         </Typography>
       </Box>
       <Box>
         <TextField
           id="search"
-          label="가게 이름을 검색하세요"
+          label="고객님의 번호를 검색하세요"
           type="search"
           fullWidth
           value={searchQuery}
@@ -77,14 +69,14 @@ const SearchStore: FC<IStoreUserProps> = (props) => {
       </Box>
 
       <Box p={1}>
-        {dataFiltered.map((e: string, index: number) => (
+        {dataFiltered.map((e: { name: string; phoneNumber: string }) => (
           <ListItem sx={{ px: 0, cursor: 'pointer' }} onClick={() => clickListItem(e)}>
             <ListItemAvatar>
               <Avatar sx={{ backgroundColor: '#bfc47e' }}>
                 <FolderIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={e} />
+            <ListItemText primary={e.name} secondary={e.phoneNumber} />
           </ListItem>
         ))}
       </Box>
@@ -92,4 +84,4 @@ const SearchStore: FC<IStoreUserProps> = (props) => {
   );
 };
 
-export default SearchStore;
+export default SearchUser;

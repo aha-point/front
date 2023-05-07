@@ -6,7 +6,7 @@ interface BasicInputFieldProps {
   type: string;
   placeholder?: string;
 }
-export const BasicInput = ({ placeholder, type, fieldName }: BasicInputFieldProps) => {
+const BasicInput = ({ placeholder, type, fieldName }: BasicInputFieldProps) => {
   return <Input placeholder={placeholder} type={type} name={fieldName} />;
 };
 const Input = styled.input`
@@ -20,3 +20,4 @@ const Input = styled.input`
     color: #c1c1c1;
   }
 `;
+export default BasicInput;

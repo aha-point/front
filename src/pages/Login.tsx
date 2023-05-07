@@ -1,11 +1,11 @@
 import { styled } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, redirect } from 'react-router-dom';
 import Link from '@mui/material/Link';
-import BasicButton from '../../Components/Button/BasicButton';
+import BasicButton from '../Components/Button/BasicButton';
 
-export const Login = () => {
+const Login = () => {
   return (
     <Grid container direction={'row'} height={'100vh'}>
       <Grid item width={'50%'} margin={'0 auto'}></Grid>
@@ -56,11 +56,11 @@ export const Login = () => {
               <div>회원이 아니신가요?</div>
             </Grid>
             <Grid item>
-              <Link component={RouterLink} to="/signupstore">
+              <Link component={RouterLink} to="/store/signup">
                 가게 회원가입
               </Link>
               <br />
-              <Link component={RouterLink} to="/signup">
+              <Link component={RouterLink} to="/user/signup">
                 일반 회원가입
               </Link>
             </Grid>
@@ -76,3 +76,22 @@ const Title = styled('h1')({
   fontSize: '24px',
   marginBottom: '50px',
 });
+
+const getAccessTokenFfromLocalStorage = (key: string) => {
+  // TODO : 토큰 확인 로직
+  if (key === 'ACCESS_TOKEN') {
+    return true;
+  }
+  return false;
+};
+
+export const rootLoader = () => {
+  /** TOEKN */
+  const accessToken = getAccessTokenFfromLocalStorage('ACCESS_TOKEN');
+  if (!accessToken) {
+    return redirect('/');
+  }
+
+  return null;
+};
+export default Login;

@@ -1,6 +1,4 @@
-interface INotFoundProps {}
-
-const NotFound = (props: INotFoundProps) => {
+const NotFound = () => {
   //   const location = useLocation();
   //   const from = location.state?.from || '/';
 

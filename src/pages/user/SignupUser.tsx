@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import BasicButton from '../../Components/Button/BasicButton';
 
-export const Signup = () => {
+const SignupUser = () => {
   return (
     <Grid container height={'100vh'} alignItems="center">
       <Grid item width={'350px'} margin={'0 auto'} padding={'20px 0'}>
@@ -74,3 +74,5 @@ const Title = styled('h1')({
   fontSize: '24px',
   marginBottom: '50px',
 });
+
+export default SignupUser;
