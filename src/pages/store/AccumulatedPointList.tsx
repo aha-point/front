@@ -48,7 +48,7 @@ const AccumulatedPointList = () => {
               }
             >
               <ListItemAvatar>
-                <Avatar sx={{ backgroundColor: '#aa96ac' }}>
+                <Avatar sx={{ backgroundColor: '#bfc47e' }}>
                   <FolderIcon />
                 </Avatar>
               </ListItemAvatar>

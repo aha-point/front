@@ -19,22 +19,28 @@ const SignupUser = () => {
         </Title>
         <Grid container columns={12} spacing={1}>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-            <InputButton
+            {/* <InputButton
               placeholder="핸드폰 번호('-' 구분없이 입력)"
               type="number"
               label="아이디(핸드폰 번호)"
               fieldName="phoneNumber"
               buttonText="인증번호 전송"
-            />
+              handleChange={() => {
+                console.log('아이디');
+              }}
+            /> */}
           </Grid>
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-            <InputButton
+            {/* <InputButton
               placeholder="인증번화 확인"
               type="number"
               label="아이디(핸드폰 번호)"
               fieldName="phoneNumber"
               buttonText="확인"
-            />
+              handleChange={() => {
+                console.log('아이디 확인');
+              }}
+            /> */}
           </Grid>
 
           <Grid container p={1} direction="row" justifyContent="center" alignItems="center">

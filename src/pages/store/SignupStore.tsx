@@ -6,6 +6,13 @@ import Grid from '@mui/material/Grid';
 import ImageUpload from '../../Components/ImageUpload';
 import BasicButton from '../../Components/Button/BasicButton';
 import { Outlet } from 'react-router-dom';
+import useSignup from '../../hooks/useSignup';
+import {
+  validatePassword,
+  validateTelNumber,
+  validatePhoneNumber,
+  validateNumberString,
+} from '../../utils/validation';
 
 const SignupStore = () => {
   // const [file, setFile] = useState<File | null>();
@@ -23,6 +30,7 @@ const SignupStore = () => {
     //   })
     //   .finally(() => console.log('loaded'));
   };
+  const { signupInfo, handleSignupInfo } = useSignup();
   return (
     <>
       <Grid container height={'100vh'} alignItems="center">
@@ -44,15 +52,25 @@ const SignupStore = () => {
                 label="아이디(핸드폰 번호)"
                 fieldName="phoneNumber"
                 buttonText="인증번호 전송"
+                handleChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'id', value });
+                }}
+                validationCheck={!validatePhoneNumber(signupInfo.id)}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
               <InputButton
-                placeholder="인증번화 확인"
+                placeholder="인증번호 확인"
                 type="number"
                 label="인증번호"
                 fieldName="phoneNumber"
                 buttonText="확인"
+                handleChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'validationCode', value });
+                }}
+                validationCheck={validateNumberString(signupInfo.validationCode)}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
@@ -63,6 +81,11 @@ const SignupStore = () => {
                 type="password"
                 autoComplete="current-password"
                 variant="standard"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'password', value });
+                }}
+                error={!validatePassword(signupInfo.password)}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
@@ -73,10 +96,24 @@ const SignupStore = () => {
                 type="password"
                 autoComplete="current-password"
                 variant="standard"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'passwordForCheck', value });
+                }}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
-              <TextField fullWidth required id="storeName" label="상호명" variant="standard" />
+              <TextField
+                fullWidth
+                required
+                id="storeName"
+                label="상호명"
+                variant="standard"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'storeName', value });
+                }}
+              />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
               <TextField
@@ -86,6 +123,11 @@ const SignupStore = () => {
                 id="storeNumber"
                 label="가게 전화번호"
                 variant="standard"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'storeNumber', value });
+                }}
+                error={!validateTelNumber(signupInfo.storeNumber)}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
@@ -96,6 +138,10 @@ const SignupStore = () => {
                 id="address"
                 label="가게 주소"
                 variant="standard"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'storeAddress', value });
+                }}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
@@ -106,6 +152,10 @@ const SignupStore = () => {
                 id="businessType"
                 label="업종"
                 variant="standard"
+                onChange={(event) => {
+                  const value = event.target.value;
+                  handleSignupInfo({ key: 'businessType', value });
+                }}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
@@ -116,6 +166,10 @@ const SignupStore = () => {
                 label="적립률"
                 type="number"
                 variant="standard"
+                onChange={(event) => {
+                  const value = Number(event.target.value);
+                  handleSignupInfo({ key: 'accumulatePercentage', value });
+                }}
               />
             </Grid>
             <Grid container p={1} direction="row" justifyContent="center" alignItems="center">
